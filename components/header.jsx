@@ -1,3 +1,4 @@
+'use client'
 import { LayoutDashboard } from "lucide-react"
 import { Search } from "./Search";
 import FullScreenIcon from "./icons/FullScreenIcon";

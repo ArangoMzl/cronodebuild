@@ -1,10 +1,8 @@
-'use client'
 import './globals.css'
 import Header from '@/components/header'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 import Sidebar from '@/components/Sidebar'
 import { SidebarProvider } from '../context/SidebarContext';
-import { createContext, useContext, useState, useMemo } from "react";
 // import Breadcrumbs from '@/components/BreadcrumbV2';
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -14,19 +12,14 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
   return (
     <html lang="en">
       <body>
         <SidebarProvider>
           <div className="flex flex-1 flex-row overflow-y-hidden">
-            <Sidebar isOpen={isSidebarOpen} />
+            <Sidebar/>
             <main className="h-screen flex-1 overflow-y-auto">
-              <Header toggleSidebar={toggleSidebar} />
+              <Header/>
               {/* <div className="m-4"><Breadcrumbs /></div> */}
               {children}
             </main>
