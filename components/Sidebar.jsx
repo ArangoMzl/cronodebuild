@@ -68,7 +68,7 @@ function Sidebar() {
     const { isSidebarOpen } = useSidebar();
 
     return (
-        <TooltipProvider>
+        <TooltipProvider delayDuration={0.2}>
             <div className={` ${isSidebarOpen ? 'blur-bg fixed w-full h-full' : ''}`}>
                 <aside className={cn(isSidebarOpen ? 'block' : 'hidden', 'h-full md:block')}>
                     <div className={wrapperClasses} onMouseEnter={onMouseOver} onMouseLeave={onMouseOver} style={{ transition: "width 300ms cubic-bezier(0.2, 0, 0, 1) 0s" }}>
@@ -94,11 +94,13 @@ function Sidebar() {
                                             {toggleCollapse ? (
                                                 <Tooltip>
                                                     <TooltipTrigger>
+                                                    <Link href={menu.link}>
                                                         <div className="flex py-4 px-3 items-center w-full h-full">
                                                             <div style={{ width: "2.5rem" }}>
                                                                 <Icon />
                                                             </div>
                                                         </div>
+                                                        </Link>
                                                         <TooltipContent>{menu.label}</TooltipContent>
                                                     </TooltipTrigger>
                                                 </Tooltip>
