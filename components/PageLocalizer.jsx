@@ -15,7 +15,7 @@ const PageLocalizer = () => {
     //     console.log('in useEffect')
     //   })
     return (
-        <span className="PageLocalizer" key="">
+        <span className="PageLocalizer flex" key="">
             {isHomePage && (
                 <span className='text-black capitalize font-semibold'>
                     Home

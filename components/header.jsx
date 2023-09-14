@@ -20,7 +20,7 @@ function Header() {
                 >
                     ☰
                 </button>
-                <h1 className="flex items-center p-4 font-semibold"><PageLocalizer/></h1>
+                <h1 className="flex items-center p-4 font-semibol md:translate-x-0 -translate-x-20"><PageLocalizer/></h1>
                 <Search />
                 <div className="flex items-center p-4 gap-2">
                     <div className='m-2'><FullScreenIcon /></div>

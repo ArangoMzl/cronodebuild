@@ -1,7 +1,10 @@
 function horarios() {
-    return ( 
-        <><h1>Horarios</h1></>
-     );
+    return (
+        <>
+
+
+        </>
+    );
 }
 
 export default horarios;
