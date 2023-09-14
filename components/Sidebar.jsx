@@ -13,6 +13,13 @@ import DownloadIcon from "./icons/DownloadIcon";
 import LogoutIcon from "./icons/LogoutIcon";
 import { useSidebar } from '../context/SidebarContext';
 import { cn } from '@/lib/utils';
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
+
 
 const menuItems = [
     { id: 1, label: "Home", icon: HomeIcon, link: "/" },
@@ -43,7 +50,7 @@ function Sidebar() {
     )
 
     const getNavItemClasses = (menu) => {
-        return classNames("flex item-center cursor-pointer hover:bg-green-400 rounded w-full overflow-hidden whitespace-nowrap hover:text-white text-green-500",
+        return classNames("flex item-center cursor-pointer hover:bg-green-500 rounded w-full overflow-hidden whitespace-nowrap hover:text-white text-green-500",
             {
                 ["bg-gray-200"]: activeMenu && menu && activeMenu.id === menu.id,
             }
@@ -61,60 +68,75 @@ function Sidebar() {
     const { isSidebarOpen } = useSidebar();
 
     return (
-        <div className={` ${isSidebarOpen ? 'blur-bg fixed w-full h-full' : ''}`}>
-            <aside className={cn(isSidebarOpen ? 'block':'hidden', 'h-full md:block')}>
-                <div className={wrapperClasses} onMouseEnter={onMouseOver} onMouseLeave={onMouseOver} style={{ transition: "width 300ms cubic-bezier(0.2, 0, 0, 1) 0s" }}>
-                    <div className="flex flex-col">
-                        <div className="flex items-center justify-between relative">
-                            <div className="flex items-center pl-1">
-                                <Logo />
-                                <span className={classNames('text-lg font-semibold text-slate-800 pl-2', {
-                                    hidden: toggleCollapse,
-                                })}>
-                                    Cronode
-                                </span>
+        <TooltipProvider>
+            <div className={` ${isSidebarOpen ? 'blur-bg fixed w-full h-full' : ''}`}>
+                <aside className={cn(isSidebarOpen ? 'block' : 'hidden', 'h-full md:block')}>
+                    <div className={wrapperClasses} onMouseEnter={onMouseOver} onMouseLeave={onMouseOver} style={{ transition: "width 300ms cubic-bezier(0.2, 0, 0, 1) 0s" }}>
+                        <div className="flex flex-col">
+                            <div className="flex items-center justify-between relative">
+                                <div className="flex items-center pl-1">
+                                    <Logo />
+                                    <span className={classNames('text-lg font-semibold text-slate-800 pl-2', {
+                                        hidden: toggleCollapse,
+                                    })}>
+                                        Cronode
+                                    </span>
+                                </div>
+                                {isCollapsible && (<button className={menuIconClasses} onClick={handleSidebarToggle}>
+                                    <MenuIcon />
+                                </button>)}
                             </div>
-                            {isCollapsible && (<button className={menuIconClasses} onClick={handleSidebarToggle}>
-                                <MenuIcon />
-                            </button>)}
-                        </div>
-                        <div className="flex flex-col items-start mt-4">
-                            {menuItems.map(({ icon: Icon, ...menu }) => {
-                                const classes = getNavItemClasses(menu)
-                                return (
-                                    <div className={classes} key="notunique">
-                                        <Link href={menu.link} className="flex py-4 px-3 items-center w-full h-full">
-                                            <div style={{ width: "2.5rem" }}>
-                                                <Icon />
-                                            </div>
-                                            {!toggleCollapse && (
-                                                <span
-                                                    className={classNames(
-                                                        "text-md font-medium text-slate-800"
+                            <div className="flex flex-col items-start mt-4">
+                                {menuItems.map(({ icon: Icon, ...menu }) => {
+                                    const classes = getNavItemClasses(menu)
+                                    return (
+                                        <div className={classes} key={menu.id}>
+                                            {toggleCollapse ? (
+                                                <Tooltip>
+                                                    <TooltipTrigger>
+                                                        <div className="flex py-4 px-3 items-center w-full h-full">
+                                                            <div style={{ width: "2.5rem" }}>
+                                                                <Icon />
+                                                            </div>
+                                                        </div>
+                                                        <TooltipContent>{menu.label}</TooltipContent>
+                                                    </TooltipTrigger>
+                                                </Tooltip>
+                                            ) : (
+                                                <Link href={menu.link} className="flex py-4 px-3 items-center w-full h-full">
+                                                    <div style={{ width: "2.5rem" }}>
+                                                        <Icon />
+                                                    </div>
+                                                    {!toggleCollapse && (
+                                                        <span
+                                                            className={classNames(
+                                                                "text-md font-medium text-slate-800"
+                                                            )}
+                                                        >
+                                                            {menu.label}
+                                                        </span>
                                                     )}
-                                                >
-                                                    {menu.label}
-                                                </span>
+                                                </Link>
                                             )}
-                                        </Link>
-                                    </div>
-                                )
-                            })}
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                        <div className={`${getNavItemClasses({})} px-3 py-4`}>
+                            <div>
+                                <LogoutIcon />
+                            </div>
+                            {!toggleCollapse && (
+                                <span className={classNames("text-md font-semibold px-4 text-slate-800")}>
+                                    Logout
+                                </span>
+                            )}
                         </div>
                     </div>
-                    <div className={`${getNavItemClasses({})} px-3 py-4`}>
-                        <div>
-                            <LogoutIcon />
-                        </div>
-                        {!toggleCollapse && (
-                            <span className={classNames("text-md font-semibold px-4 text-slate-800")}>
-                                Logout
-                            </span>
-                        )}
-                    </div>
-                </div>
-            </aside>
-        </div>
+                </aside>
+            </div>
+        </TooltipProvider>
     );
 }
 
