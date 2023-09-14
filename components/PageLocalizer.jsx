@@ -3,7 +3,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 // import { useEffect } from 'react'
 
-const Breadcrumbs = () => {
+const PageLocalizer = () => {
     const router = useRouter();
     const pathname = usePathname();
     const pathSegments = pathname.split('/').filter((segment) => segment !== '')
@@ -15,16 +15,15 @@ const Breadcrumbs = () => {
     //     console.log('in useEffect')
     //   })
     return (
-        <span className="breadcrumbs" key="">
-            {!isHomePage && (
-                <Link href="/">
+        <span className="PageLocalizer" key="">
+            {isHomePage && (
+                <span className='text-black capitalize font-semibold'>
                     Home
-                </Link>
+                </span>
             )}
             {pathSegments.map((segment, index) => (
-                <div className='text-green-600 display inline-flex px-1' key="">
+                <div className='text-black capitalize font-semibold' key="">
                     <span key={index}>
-                        {' / '}
                         {segment}
                     </span>
                 </div>
@@ -33,4 +32,4 @@ const Breadcrumbs = () => {
     );
 };
 
-export default Breadcrumbs;
+export default PageLocalizer;
