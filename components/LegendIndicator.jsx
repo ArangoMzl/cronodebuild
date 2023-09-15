@@ -1,6 +1,6 @@
 function LegendIndicator() {
     return (
-        <div className="flex px-4 gap-4">
+        <div className="flex px-4 pt-3 gap-4">
             <div className="inline-flex items-center">
                 <span className="w-4 h-4 inline-block bg-greencard rounded-md mr-1.5"></span>
                 <span className="text-gray-600 dark:text-gray-400 text-sm">Tecnologo</span>

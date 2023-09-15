@@ -12,15 +12,15 @@ function Header() {
     const { isSidebarOpen, toggleSidebar } = useSidebar();
     return (
 
-        <header className="sticky top-0" >
+        <header className="sticky top-0 items-center" >
             <div className="w-full h-16 bg-white justify-between text-text inline-flex shadow">
                 <button
-                    className="md:hidden text-black text-xl focus:outline-none px-6"
+                    className="md:hidden text-black text-xl focus:outline-none px-6 -mt-1 pl-2"
                     onClick={toggleSidebar}
                 >
                     ☰
                 </button>
-                <h1 className="flex items-center p-4 font-semibol md:translate-x-0 -translate-x-20"><PageLocalizer/></h1>
+                <h1 className="flex items-center p-4 font-semibol md:translate-x-0 -translate-x-16"><PageLocalizer/></h1>
                 <Search />
                 <div className="flex items-center p-4 gap-2">
                     <div className='m-2'><FullScreenIcon /></div>
