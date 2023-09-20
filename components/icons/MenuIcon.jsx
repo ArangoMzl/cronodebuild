@@ -3,7 +3,7 @@ import { CgMenuGridO } from "react-icons/cg"
 
 function MenuIcon() {
     return (  
-        <CgMenuGridO size={35}/>
+        <CgMenuGridO size={35} color="#39a900"/>
     );
 }
 

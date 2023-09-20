@@ -21,7 +21,7 @@ function Logo() {
     //   />
     // </svg>
 
-    <TbCalendarTime size={40} color="#22c55e"/>
+    <TbCalendarTime size={40} color="#39a900"/>
   );
 }
 

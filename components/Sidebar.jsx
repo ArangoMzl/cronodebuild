@@ -1,7 +1,7 @@
 'use client'
 import { createContext, useContext, useState, useMemo } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import classNames from "classnames";
 import Logo from "./icons/Logo";
 import MenuIcon from "./icons/MenuIcon";
@@ -34,7 +34,8 @@ function Sidebar() {
     const [isCollapsible, setIsCollapsible] = useState(false)
 
     const router = useRouter()
-    const activeMenu = useMemo(() => menuItems.find(menu => menu.link === router.pathname), [router.pathname])
+    const pathname = usePathname();
+    const activeMenu = useMemo(() => menuItems.find(menu => menu.link === pathname), [pathname])
 
     const wrapperClasses = classNames("h-screen px-4 pt-4 pb-4 bg-gray-50 flex justify-between flex-col text-black relative shadow",
         {
@@ -50,9 +51,9 @@ function Sidebar() {
     )
 
     const getNavItemClasses = (menu) => {
-        return classNames("flex item-center cursor-pointer hover:bg-green-500 rounded w-full overflow-hidden whitespace-nowrap hover:text-white text-green-500",
+        return classNames("flex item-center cursor-pointer hover:bg-greendinput rounded w-full overflow-hidden whitespace-nowrap hover:text-white text-greendinput",
             {
-                ["bg-gray-200"]: activeMenu && menu && activeMenu.id === menu.id,
+                ["bg-slate-200"]: activeMenu && menu && activeMenu.id === menu.id,
             }
         )
     }
@@ -105,7 +106,7 @@ function Sidebar() {
                                                     </TooltipTrigger>
                                                 </Tooltip>
                                             ) : (
-                                                <Link href={menu.link} className="flex py-4 px-3 items-center w-full h-full">
+                                                <Link href={menu.link} className="flex py-4 px-3 items-center w-full h-full hover:text-white">
                                                     <div style={{ width: "2.5rem" }}>
                                                         <Icon />
                                                     </div>

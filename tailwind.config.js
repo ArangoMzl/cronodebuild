@@ -36,7 +36,7 @@ module.exports = {
         graycard: '#5D5F69',
         yellowcard: '#F6BF26',
         pinkcard: '#FF6E79',
-        greendinput: '#4E8E37',
+        greendinput: '#3daf04',
       },
     },
   },
