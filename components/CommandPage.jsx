@@ -174,7 +174,7 @@ export function CommandMenu() {
               </CommandItem>
               <CommandItem>
                 <Presentation className="mr-2 h-4 w-4" />
-                <span>Hambientes</span>
+                <span>Ambientes</span>
               </CommandItem>
             </CommandGroup>
             <CommandSeparator />
