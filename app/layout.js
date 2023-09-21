@@ -5,7 +5,7 @@ import Sidebar from '@/components/Sidebar'
 import { SidebarProvider } from '../context/SidebarContext';
 import Breadcrumbs from '@/components/BreadcrumbV2';
 // const inter = Inter({ subsets: ['latin'] })
-import { CommandMenu } from '@/components/CommandPage';
+
 
 export const metadata = {
   title: 'Cronode',
@@ -21,7 +21,6 @@ export default function RootLayout({ children }) {
             <Sidebar/>
             <main className="h-screen flex-1 overflow-y-auto">
               <Header/>
-              <CommandMenu />
               <div className="m-4"><Breadcrumbs/></div>
               {children}
             </main>

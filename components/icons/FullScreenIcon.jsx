@@ -1,9 +1,9 @@
 import * as React from "react";
-import { AiOutlineFullscreenExit } from "react-icons/ai"
+import { LuMaximize } from "react-icons/lu"
 
 function FullScreenIcon() {
     return ( 
-        <AiOutlineFullscreenExit size={20} className="cursor-pointer"/>
+        <LuMaximize size={18} className="cursor-pointer"/>
      );
 }
 
