@@ -3,7 +3,6 @@ import { createContext, useContext, useState, useMemo } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import classNames from "classnames";
-import Logo from "./icons/Logo";
 import MenuIcon from "./icons/MenuIcon";
 import HomeIcon from "./icons/HomeIcon";
 import UserIcon from "./icons/UserIcon";
@@ -19,6 +18,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
+import Image from "next/image";
 
 
 const menuItems = [
@@ -76,7 +76,7 @@ function Sidebar() {
                         <div className="flex flex-col">
                             <div className="flex items-center justify-between relative">
                                 <div className="flex items-center pl-1">
-                                    <Logo />
+                                    <Image src="/logo_solo.png" alt="" width={40} height={40}/>
                                     <span className={classNames('text-lg font-semibold text-slate-800 pl-2', {
                                         hidden: toggleCollapse,
                                     })}>

@@ -63,13 +63,14 @@ export function CommandMenu() {
 
   return (
     <>
-      <button onClick={toggleDialog} className="inline-flex justify-between gap-32 border border-greendinput/25 p-2 rounded-2xl items-center shadow-md hover:border-greendinput">
+      <button onClick={toggleDialog} className="md:inline-flex justify-between gap-32 border border-greendinput/25 p-2 rounded-2xl items-center shadow-md hover:border-greendinput hidden">
         <BiSearchAlt2 size={20} />
         <span className="font-semibold opacity-80 text-gray-500">Buscar...</span>
         <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
           <span className="text-xs">⌘</span>K
         </kbd>
       </button>
+      <BiSearchAlt2 size={18} onClick={toggleDialog} className="lg:hidden flex relative left-[58%]"/>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Escribe un comando o busca..." />
         <Menubar className="p-2 m-1 border-none">
