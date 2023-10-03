@@ -2,10 +2,139 @@
 @tailwind components;
 @tailwind utilities;
 
+::backdrop, :fullscreen {
+  background-color: #FFF
+}
 
 .blur-bg {
-    backdrop-filter: blur(8px); /* Ajusta el valor de desenfoque según tus preferencias */
-    background-color: rgba(0, 0, 0, 0.203); /* Ajusta el color y la opacidad del fondo borroso */
-    transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+  backdrop-filter: blur(8px);
+  /* Ajusta el valor de desenfoque según tus preferencias */
+  background-color: rgba(0, 0, 0, 0.203);
+  /* Ajusta el color y la opacidad del fondo borroso */
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;1,500&display=swap');
+
+/* Ocultar los botones y la fecha*/
+.rbc-toolbar {
+  display: none;
+}
+
+/* Ocultar el espacio de evento en All Days (Espacio que hay abajo de los dias de la semana) */
+.rbc-allday-cell {
+  display: none;
+}
+
+/* Ocultar el domingo */
+.dia-no-laborable {
+  display: none;
+}
+
+/* Ocultar el borde bajo de los dias */
+.rbc-header.dia-laborable {
+  border-bottom: none;
+}
+
+/* styles.css o tu archivo de estilos personalizado */
+.custom-calendar,
+.rbc-time-view {
+  border-top: none;
+  border-left: none;
+  border-bottom: none;
+  /* Elimina el borde */
+  margin: 0 !important;
+  /* Elimina las márgenes y utiliza !important para forzar la prioridad del estilo */
+  padding: 0 !important;
+  /* Elimina el relleno y utiliza !important para forzar la prioridad del estilo */
+}
+
+.custom-event-card {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding-top: 15px;
+}
+
+.rbc-event-content {
+  background-color: white;
+  position: relative;
+
+  -webkit-box-shadow: inset 5px 7px 5px 0px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: inset 5px 7px 5px 0px rgba(0, 0, 0, 0.06);
+  box-shadow: inset 5px 7px 5px 0px rgba(0, 0, 0, 0.06);
+}
+
+.rbc-day-slot .rbc-event {
+  border: none;
+  padding-top: 30px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+}
+
+.rbc-event-label {
+  display: none;
+}
+
+.rbc-current-time-indicator {
+  display: none;
+}
+
+.rbc-events-container{
+  width: 98%;
+}
+
+.rbc-button-link {
+  color: #4E8E37;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+/* custom-calendar.css */
+/* Centra vertical y horizontalmente el contenido en las casillas de tiempo */
+.rbc-time-slot {
+  display: flex;
+  align-items: center;
+  /* Centra verticalmente */
+  justify-content: center;
+  /* Centra horizontalmente */
+  color: rgba(0, 0, 0, 0.70);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* custom-alert.css */
+/* Estilos para la alerta que aparece en la parte derecha */
+.custom-alert {
+  position: fixed;
+  top: 0;
+  right: 0;
+  /* Coloca la alerta en la parte derecha */
+  width: 300px;
+  /* Ancho de la alerta según tus necesidades */
+  background-color: white;
+  /* Color de fondo de la alerta */
+  /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); */
+  /* Sombra para resaltar la alerta */
+  padding: 20px;
+  /* Relleno interno de la alerta */
+  z-index: 999;
+  /* Asegura que la alerta esté en la parte superior */
+  animation-duration: 400ms;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    right: -150px;
   }
-  
+
+  to {
+    width: 300px;
+  }
+}

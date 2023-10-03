@@ -70,7 +70,7 @@ function Sidebar() {
 
     return (
         <TooltipProvider delayDuration={0.2}>
-            <div className={` ${isSidebarOpen ? 'blur-bg fixed w-full h-full' : ''}`}>
+            <div className={` ${isSidebarOpen ? 'blur-bg absolute w-full h-full z-10' : ''}`}>
                 <aside className={cn(isSidebarOpen ? 'block' : 'hidden', 'h-full lg:block')}>
                     <div className={wrapperClasses} onMouseEnter={onMouseOver} onMouseLeave={onMouseOver} style={{ transition: "width 300ms cubic-bezier(0.2, 0, 0, 1) 0s" }}>
                         <div className="flex flex-col">

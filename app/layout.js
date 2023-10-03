@@ -5,7 +5,7 @@ import Sidebar from '@/components/Sidebar'
 import { SidebarProvider } from '../context/SidebarContext';
 import Breadcrumbs from '@/components/BreadcrumbV2';
 // const inter = Inter({ subsets: ['latin'] })
-
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 export const metadata = {
   title: 'Cronode',
@@ -18,15 +18,17 @@ export default function RootLayout({ children }) {
       <body>
         <SidebarProvider>
           <div className="flex flex-1 flex-row overflow-y-hidden">
-            <Sidebar/>
-            <main className="h-screen flex-1 overflow-y-auto">
-              <Header/>
-              <div className="m-4"><Breadcrumbs/></div>
-              {children}
+            <Sidebar />
+            <main className="h-screen flex-1 overflow-y-auto" id='calendar-container'>
+              <Header />
+              <div className="m-4"><Breadcrumbs /></div>
+
+                {children}
+
             </main>
           </div>
         </SidebarProvider>
-        
+
       </body>
 
     </html>

@@ -12,7 +12,7 @@ function Header() {
     const { isSidebarOpen, toggleSidebar } = useSidebar();
     return (
 
-        <header className="sticky top-0 items-center" >
+        <header className="sticky top-0 items-center z-10" >
             <div className="w-full h-16 bg-white justify-between text-text inline-flex shadow">
                 <button
                     className="lg:hidden text-black text-xl focus:outline-none px-6 -mt-1 pl-4"
@@ -24,11 +24,11 @@ function Header() {
                 <div className="lg:flex items-center hidden">
                     <Search />
                 </div>
-                <div className="flex items-center p-4 gap-2">
+                <div className="flex items-center md:p-4 gap-2 pr-1">
                     <div className='m-5 lg:hidden'><Search /></div>
-                    <div className='m-2'><FullScreenIcon /></div>
+                    <div className='m-2'><button onClick={() => document.getElementById('calendar-container').requestFullscreen()}><FullScreenIcon /></button></div>
                     <div className='m-2'><NotificationIcon /></div>
-                    <Image src="/LogoSena.png" alt="" className='cursor-pointer' width={55} height={55} />
+                    <img src="/LogoSena.png" alt="" className='cursor-pointer w-11' />
                 </div>
             </div>
         </header>
